@@ -15,9 +15,9 @@ Route::post('/signup',[StudentController::class, 'signupCreateSubmitted'])->name
 Route::get('/login',[StudentController::class, 'login'])->name('login');
 Route::post('/login',[StudentController::class, 'loginCreateSubmitted'])->name('login');
 
-Route::get('/user/dash',[StudentController::class, 'dashboard'])->name('dashboard');
+Route::get('/user/dash',[StudentController::class, 'dashboard'])->name('dashboard')->middleware('ValidStudent');
 
-Route::get('/user/profile',[StudentController::class, 'profile'])->name('profile');
+Route::get('/user/profile',[StudentController::class, 'profile'])->name('profile')->middleware('ValidStudent');
 // Route::get('/user/edit',[StudentController::class, 'edit'])->name('edit');
 
 

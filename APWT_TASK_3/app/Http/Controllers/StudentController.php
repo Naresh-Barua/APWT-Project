@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -16,12 +16,10 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-    //     //
-    // }
-
-
+    public function index()
+    {
+        return view('auth.login');
+    }
 
     public function signup(){
         return view('registration');
@@ -112,29 +110,30 @@ class StudentController extends Controller
         ->where('password',$request->password)
 
         ->first();
-
-
-
-    // return $customer;
-
         if($student){
 
-        $request->session()->put('user',$student->username);
+        $request->session()->put('student',$student->username);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->withSuccess('Signed in');
 
         }
 
-        return back();
+        return redirect("login")->withSuccess('Login details are not valid');
 
     }
 
-    public function dashboard(){
-        return view('dashboard');
+    public function dashboard(Request $request){
+
+        $student = Student::where('username', $request->session()->get('student'))->first();
+
+            return view('dashboard')->with('student', $student);
+       
     }
 
-    public function profile(){
-        return view('profile');
+    public function profile(Request $request){
+       
+            return view('profile');
+       
     }
 
     
