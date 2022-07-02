@@ -7,7 +7,8 @@
   margin-right: 0px;
   padding: 50px;
   text-align: center;
-  background-color: #91bd2c;
+  background-image: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
+
   color: white;
   
 }

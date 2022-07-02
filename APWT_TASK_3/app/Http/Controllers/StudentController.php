@@ -130,6 +130,28 @@ class StudentController extends Controller
        
     }
 
+    public function studentEdit(Request $request){
+        $student = Student::where('username', $request->session()->get('student'))->first();
+        // return $student;
+        return view('profile')->with('student', $student);
+        // return view('student.studentCreate')->with('student', $student);
+
+    }
+    public function studentEditSubmitted(Request $request){
+        $student = Student::where('username', $request->session()->get('student'))->first();
+        // return  $student;
+        $student->name = $request->name;
+        $student->stuid = $request->stuid;
+        $student->dob = $request->dob;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+
+
+        $student->save();
+        return redirect()->route('dashboard');
+
+    }
+
     public function profile(Request $request){
        
             return view('profile');
@@ -204,7 +226,7 @@ class StudentController extends Controller
     {
         //
     }
-
+    
 
     public function logout(){
         session()->flush();

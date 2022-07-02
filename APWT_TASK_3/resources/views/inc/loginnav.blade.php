@@ -4,9 +4,9 @@
         <li class="nav-item">
           <a class="nav-link active" href="{{route('home')}}">Home</a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link active" href="{{route('')}}">Log In</a>
-      </li> --}}
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('dashboard')}}">Dashboard</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link active" href="{{route('profile')}}">Profile</a>
     </li>
@@ -16,5 +16,7 @@
     </li>
         
       </ul>
+      
     </div>
+    
   </nav>

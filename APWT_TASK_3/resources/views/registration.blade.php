@@ -9,10 +9,12 @@
   margin-right: 0px;
   padding: 50px;
   text-align: center;
-  background-color: #91bd2c;
+  background-image: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
   color: white;
   
 }
+
+
 
   </style>
   <form action="{{route('signup')}}" class="form-group" method="post">
@@ -28,10 +30,11 @@
             </ul>
         </div>
     @endif
+ 
     <div class = "about-section">
 <div class="container text-center"> 
 <h1>
-    Hello, Welcome to BYKEA
+    Hello Welcome to BYKEA
 
 </h1>
 
@@ -92,7 +95,7 @@
     <div class="col-md-4 form-group container text-center">
         
         <span>Password</span> 
-        <input type="text" name="password"  class="form-control " placeholder="Your password">
+        <input type="password" name="password"  class="form-control " placeholder="Your password">
         @error('password')
             <span class="text-danger">{{$message}}</span>
         @enderror
@@ -107,7 +110,7 @@
         @enderror
     </div> 
 
-    <div class="form-check d-flex justify-content-center mb-5">
+    <div class="col-md-4 form-group container text-center">
         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
         <label class="form-check-label" for="form2Example3">
           I agree all statements in <a href="#!">Terms of service</a>
@@ -126,8 +129,9 @@
 
       </div>
 </form>
+</div> 
 </div>
-</div>
+
 @endsection 
 
 
